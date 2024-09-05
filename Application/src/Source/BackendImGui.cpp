@@ -1,5 +1,8 @@
 #include "../Headers/BackendImGui.h"
 
+bool show_demo_window = false;
+
+
 // Constructor
 BackendImGui::BackendImGui() 
 {
@@ -47,10 +50,10 @@ void BackendImGui::ImGuiRedraw() {
 
     if (show_demo_window == true) 
     {
-
+        // ImGui rendering logic goes here, for example:
+        ImGui::ShowDemoWindow();
     }
-    // ImGui rendering logic goes here, for example:
-    ImGui::ShowDemoWindow();
+
 
     // Render ImGui
     ImGui::Render();

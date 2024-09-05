@@ -8,7 +8,7 @@
 
 class BackendImGui {
 private: 
-    bool show_demo_window = false;
+
 
 public:
 
