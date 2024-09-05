@@ -1,6 +1,4 @@
 #include "../Headers/ApplicationLoop.h"
-#include "../Headers/BackendGLFW.h"
-#include "../Headers/BackendImGui.h"
 
 int windowWidth = 800;            // Desired width of the window
 int windowHeight = 600;           // Desired height of the window
@@ -20,6 +18,13 @@ Application::~Application()
 	
 }
 
+BackendGLFW& Application::GetBackendGLFW() {
+	return backend_glfw;
+}
+
+BackendImGui& Application::GetBackendImGui() {
+	return backend_imgui;
+}
 
 void Application::Start()
 {
@@ -31,13 +36,13 @@ void Application::Start()
 void Application::Update() 
 {
 	//application Update goes here
-	while (!glfwWindowShouldClose(backend_glfw.GetWindow()))
-	{
-		backend_glfw.BeginGlfw();
-		backend_imgui.ImGuiRedraw();
-		backend_glfw.EndGlfw();
-	}
+
+	backend_glfw.BeginGlfw();
+	backend_imgui.ImGuiRedraw();
+	backend_glfw.EndGlfw();
 }
+
+
 
 void Application::Stop() 
 {

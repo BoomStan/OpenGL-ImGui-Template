@@ -3,14 +3,15 @@
 #include "../Headers/BackendImGui.h"
 // Callback function to adjust viewport when the window size changes
 Application app;
-BackendGLFW backendglfw;
-GLFWwindow* window;
 
 int main() 
 {
 	app.Start();
 
-	app.Update();
+	while (!glfwWindowShouldClose(app.GetBackendGLFW().GetWindow()) )
+	{
+		app.Update();
+	}
 
 	app.Stop();
 	return 0;
