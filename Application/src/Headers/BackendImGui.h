@@ -7,15 +7,15 @@
 
 
 class BackendImGui {
-private: 
-
+private:
 
 public:
-
     BackendImGui();
     ~BackendImGui();
-
     bool Initialize(GLFWwindow* window);
+    ImGuiIO& GetImGuiIO();
+    void ImGuiBegin();
     void ImGuiRedraw();
+    void ImGuiEnd();
     void Cleanup();
 };

@@ -8,14 +8,14 @@ const char* title = "My Application"; // Title of the window
 BackendGLFW backend_glfw;
 BackendImGui backend_imgui;
 
-Application::Application() 
+Application::Application()
 {
 
 }
 
-Application::~Application() 
+Application::~Application()
 {
-	
+
 }
 
 BackendGLFW& Application::GetBackendGLFW() {
@@ -33,18 +33,20 @@ void Application::Start()
 	backend_imgui.Initialize(backend_glfw.GetWindow());
 }
 
-void Application::Update() 
+void Application::Update()
 {
 	//application Update goes here
 
 	backend_glfw.BeginGlfw();
+	backend_imgui.ImGuiBegin();
 	backend_imgui.ImGuiRedraw();
+	backend_imgui.ImGuiEnd();
 	backend_glfw.EndGlfw();
 }
 
 
 
-void Application::Stop() 
+void Application::Stop()
 {
 	//Application clean up or endings go here
 	backend_imgui.Cleanup();
